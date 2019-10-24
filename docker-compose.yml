@@ -33,7 +33,7 @@ services:
       - db
 
   portalbackend:
-    image: hbpmip/portal-backend:5.0.0-beta.2
+    image: kkech/portal_backend:latest
     restart: "no"
     ports:
       - "8080:8080"
