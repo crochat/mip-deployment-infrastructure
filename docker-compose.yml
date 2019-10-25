@@ -59,6 +59,8 @@ services:
       RELEASE_STAGE: "testing"
       DATACENTER_LOCATION: "$HOST"
       CONTAINER_ORCHESTRATION: "docker-compose"
+      GALAXY_USERNAME: "admin"
+      GALAXY_PASSWORD: "admin"
     depends_on:
       - db
     volumes:
