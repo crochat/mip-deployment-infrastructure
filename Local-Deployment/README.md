@@ -5,23 +5,8 @@ Here you will find all the information needed in order to deploy Exareme in your
 # Requirement
 
 1) Create the data_path for host machine?
-Exemple:
-
-# Ports
-
-Make sure the following ports are available:
-
-```9090: for accessing Exareme```
-
-```(Optional): 8500 for accessing Consul Key Value Store``` 
-
-```(Optional): 9000 for accessing Portainer.io``` 
-
-# Preparation
-
-## Clone the repository 
-
-Clone this repository on your local computer so you can use it to deploy exareme.
+# Exemple:
+sudo mkdir -p /data/exareme/data 
 
 ## Data Structure
 In every node the DATA should follow a specific structure. We will refer to the path of the DATA folder as ```data_path```. The ```data_path``` can be different across the nodes.
@@ -29,39 +14,28 @@ In every node the DATA should follow a specific structure. We will refer to the 
 The data folder should contain one folder for each pathology that it has datasets for. Inside that folder there should be:
 1) the datasets.csv file with all the datasets combined and
 2) the CDEsMetadata.json file for that specific pathology.
+3) for use Test data you can copy the dementia and Tbi folder in the data_path folder 
+# exemple
+sudo cp -r dementia/ /data/exareme/data/.
+sudo cp -r tbi/ /data/exareme/data/.
 
-For example:
+## deploy Exareme Stack
+In the ```Local-Deployment/``` folder, run the ```deployLocal.sh``` to start the deployment.
+You will be prompted to provide any information needed.
+# exemple
 
--> Data Folder <br />
-------> Dementia <br />
-----------> datasets.csv <br />
-----------> CDEsMetadata.json <br />
-------> Neuropathology <br />
-----------> datasets.csv <br />
-----------> CDEsMetadata.json <br />
+# What is the data_path for host machine?
+/data/exareme/data 
 
-The master node should have the CDEsMetadata.json for every pathology even if it doesn't contain a datasets.csv file.
+Creating file for Exareme image and Exareme tag..
 
-For example:
+# Type your EXAREME image name
+hbpmip/exareme
 
--> Data Folder <br />
-------> Dementia <br />
-----------> CDEsMetadata.json <br />
-------> Neuropathology <br />
-----------> datasets.csv <br />
-----------> CDEsMetadata.json <br />
-
-
-## [Optional] Exareme Version 
-
-In the ```Local-Deployment/``` folder create an ```exareme.yaml``` file.
-
-The file should contain the following lines, modify them depending on the version of exareme you want to deploy.
-
-```
-EXAREME_IMAGE: "hbpmip/exareme"
-EXAREME_TAG: "v21.0.0"
-```
+Type your EXAREME image tag:
+v21.2.0
+# Do you wish to run Portainer service? [ y/n ]
+n
 
 ## [Optional] Data path location
 
@@ -73,13 +47,6 @@ The file should contain the following line, modify it according to the place whe
 LOCAL_DATA_FOLDER=/home/user/data/
 
 ```
-
-# Deployment
-
-In the ```Local-Deployment/``` folder, run the ```deployLocal.sh``` to start the deployment.
-
-You will be prompted to provide any information needed.
-
 # Troubleshooting
 
 While ```sudo docker service ls```, if the services are Replicated 0/1:
@@ -87,3 +54,4 @@ While ```sudo docker service ls```, if the services are Replicated 0/1:
 1) Check that you have enough space in your machine.
 
 2) If there is an ERROR, try ```sudo docker service ps --no-trunc NAME_or_ID_of_service``` to see the whole message.
+3) send the émail to  the Switzerland team
