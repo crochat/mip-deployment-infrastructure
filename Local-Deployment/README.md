@@ -1,10 +1,11 @@
 # Local Exareme Deployment Guide
 
-Here you will find all the information needed in order to deploy Exareme in your environment via docker compose and shell scripts.
+Here you will find all the information needed in order to deploy Exareme in your environment via docker compose and and hell scripts.
 
 # Requirement
 
-1) Install Docker in your machine.
+1) Create the data_path for host machine?
+Exemple:
 
 # Ports
 
