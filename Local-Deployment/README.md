@@ -27,12 +27,10 @@ You will be prompted to provide any information needed.
 # What is the data_path for host machine?
 /data/exareme/data 
 
-Creating file for Exareme image and Exareme tag..
-
 # Type your EXAREME image name
 hbpmip/exareme
 
-Type your EXAREME image tag:
+# Type your EXAREME image tag:
 v21.2.0
 # Do you wish to run Portainer service? [ y/n ]
 n
