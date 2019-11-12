@@ -15,7 +15,7 @@ The data folder should contain one folder for each pathology that it has dataset
 1) the datasets.csv file with all the datasets combined and
 2) the CDEsMetadata.json file for that specific pathology.
 3) for use Test data you can copy the dementia and Tbi folder in the data_path folder 
-# exemple
+# Exemple
 sudo cp -r dementia/ /data/exareme/data/.
 sudo cp -r tbi/ /data/exareme/data/.
 
