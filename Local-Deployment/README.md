@@ -42,7 +42,7 @@ In the ```Local-Deployment/``` folder create an ```dataPath.txt``` file.
 The file should contain the following line, modify it according to the place where your data are.
 
 ```
-LOCAL_DATA_FOLDER=/home/user/data/
+LOCAL_DATA_FOLDER=/data/exareme/data/
 
 ```
 # Troubleshooting
