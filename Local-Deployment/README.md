@@ -22,7 +22,7 @@ sudo cp -r tbi/ /data/exareme/data/.
 ## deploy Exareme Stack
 In the ```Local-Deployment/``` folder, run the ```deployLocal.sh``` to start the deployment.
 You will be prompted to provide any information needed.
-# exemple
+# Exemple
 
 # What is the data_path for host machine?
 /data/exareme/data 
