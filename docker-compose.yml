@@ -3,6 +3,9 @@ version: '3.0'
 services:
   db:
     image: postgres:11.3-alpine
+    volumes:
+      - "/var/run/postgres/postgres.sock:/var/run/postgres/postgres.sock"
+      - "dbdata:/var/lib/postgresql/data"
     ports:
       - "5432:5432"
     hostname: db
@@ -93,3 +96,7 @@ services:
       VERSION: "5.0.0"
       TRACKER_ID: UA-80660232-5
       GALAXY_URL: "http://88.197.53.10:8090/nativeGalaxy"
+volumes:
+  dbdata:
+    driver: local
+                             
