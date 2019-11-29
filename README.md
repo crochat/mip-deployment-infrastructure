@@ -18,8 +18,8 @@ This project is defined to set up two sets of metadata and datasets for the foll
 This project does not cover the installation of the additional data pre-processing tools (Data Factory) needed to prepare your own datasets and metadata, nor the installation of your own local datasets and associated metadata describing the specific variables you would like to focus on.  These topics will soon be covered by additional projects to be published and announced later.
 The installation process of the MIP Version 5.0 in a demonstration setting is divided into different parts along with the different software stacks that need to be deployed. The MIP installation is performed in 2 major steps:
 
-    # Installation of the EXAREME and Backend components
-    # Installation of the Frontend components (Web-Analytics-Pack)
+    1) Installation of the EXAREME and Backend components
+    2) Installation of the Frontend components (Web-Analytics-Pack)
 This guide will assist you in deploying all the packs and explain what dependencies each one has with the rest. This guide does not include detailed installation steps for each service but will prompt you to the appropriate guide.
 
 ## Prerequisites
