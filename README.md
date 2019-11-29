@@ -23,7 +23,11 @@ This guide will assist you in deploying all the packs and explain what dependenc
 
 ## Prerequisites
 
-The server must be set up according to the MIP Technical Requirements and must be in a clean state.  In case you already have a previous version of the MIP installed and before proceeding with the MIP version 5.0 installation you will need to uninstall the previous version totally. Please proceed manually to clean up the server by removing components like: MESOS, Marathon, Zookeeper.
+The server must be set up according to the MIP Technical Requirements and must be in a clean state.  In case you already have a previous version of the MIP installed and before proceeding with the MIP version 5.0 installation you will need to uninstall the previous version totally. 
+Please proceed manually to clean up the server by removing components like: MESOS, Marathon, Zookeeper.
+You can using the script cleanup.sh to remove the previous installation.
+### If you want to secure your MIP with OpenId
+
 
 ## Installation Steps
 ### Before you start (requirements)
