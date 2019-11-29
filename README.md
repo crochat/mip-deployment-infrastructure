@@ -31,7 +31,7 @@ You can using the script cleanup.sh to remove the previous installation.
 Connect to HBP Collabotory to generate your credential OpenID security domain (https://services.humanbrainproject.eu/oidc/login)
 for configure the authentication in you MIP local Installation you have to modify the docker-compose file with your own CLIENT_ID and CLIENT_SECRET
 
-There is the guideline documentation on the GitHub repository which explain how to create and configure OpenID (OpenID Connect Client.pdf
+There is the OpenId documentation on the GitHub repository which explain how to create and configure OpenID (OpenID Connect Client.pdf
 
 ## Installation Steps
 ### Before you start (requirements)
