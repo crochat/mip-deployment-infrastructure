@@ -1,0 +1,75 @@
+{
+	"name": "LINEAR_REGRESSION",
+	"desc": "LINEAR REGRESSION",
+	"type": "multiple_local_global",
+	"parameters": [{
+			"name": "x",
+			"desc": "The right part of the linear predictor function, that contains the indepedent variables in an equation supporting the symbols +, :, * , R notation.The independent variables are variables of the input dataset.",
+			"type": "formula",
+			"columnValuesSQLType": "real,integer,text",
+			"columnValuesIsCategorical": "",
+			"columnValuesNumOfEnumerations": "",
+			"value": "alzheimerbroadcategory+righthippocampus+gender",
+			"valueNotBlank": true,
+			"valueMultiple": true,
+			"valueType": "string"
+		}, {
+			"name": "y",
+			"desc": "The left part of the linear predictor function, that contains the dependent variable.The dependent variable is a variable of the input dataset.",
+			"type": "column",
+			"columnValuesSQLType": "real,integer",
+			"columnValuesIsCategorical": "",
+			"columnValuesNumOfEnumerations": "",
+			"value": "lefthippocampus",
+			"valueNotBlank": true,
+			"valueMultiple": false,
+			"valueType": "string"
+		}, {
+			"name": "referencevalues",
+			"desc": "(Optional). Reference values of categorical independent variables. It should be json. It can be empty.",
+			"type": "other",
+			"value": "[{\"name\":\"alzheimerbroadcategory\",\"val\":\"Other\"}]",
+			"min": null,
+			"max": null,
+			"enumerations": null,
+			"valueNotBlank": false,
+			"valueMultiple": false,
+			"valueType": "json"
+		}, {
+			"name": "encodingparameter",
+			"desc": "Encoding parameter. It can be one of the following:dummycoding,sumscoding,simplecoding",
+			"type": "other",
+			"value": "dummycoding",
+			"min": null,
+			"max": null,
+			"enumerations": ['dummycoding','sumscoding','simplecoding'],
+			"valueNotBlank": true,
+			"valueMultiple": false,
+			"valueType": "string"
+		}, {
+			"name": "pathology",
+			"desc": "The name of the pathology in which the dataset belongs to.",
+			"type": "pathology",
+			"value": "dementia",
+			"valueNotBlank": true,
+			"valueMultiple": false,
+			"valueType": "string"
+		}, {
+			"name": "dataset",
+			"desc": "The names of one or more datasets, in which the algorithm will be executed.",
+			"type": "dataset",
+			"value": "desd-synthdata",
+			"valueNotBlank": true,
+			"valueMultiple": true,
+			"valueType": "string"
+		}, {
+			"name": "filter",
+			"desc": "",
+			"type": "filter",
+			"value": "",
+			"valueNotBlank": false,
+			"valueMultiple": true,
+			"valueType": "string"
+		}
+	]
+}
