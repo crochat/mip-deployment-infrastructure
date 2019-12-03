@@ -12,7 +12,8 @@ export ANSIBLE_HOST_KEY_CHECKING=False      #avoid host key checking
 # Initialize ansible_playbook variable with the basic command
 # Ask the user if he wants to save the ansible vault password.
 init_ansible_playbook () {
-    ansible_playbook="ansible-playbook -i ../hosts.ini -c paramiko -e@../vault.yaml "
+ ansible_playbook="ansible-playbook -i ../hosts.ini  --vault-password-file ../vault-password-file -e@../vault.yaml "
+
 
     get_vault_authentication
 }

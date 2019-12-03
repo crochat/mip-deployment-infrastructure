@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 init_ansible_playbook () {
-    ansible_playbook="ansible-playbook -i ../hosts.ini -c paramiko -e@../vault.yaml "
+    ansible_playbook="ansible-playbook -i ../hosts.ini  --vault-password-file ../vault-password-file -e@../vault.yaml "
 
     get_vault_authentication
 }
@@ -13,7 +13,7 @@ echo -e "\nInitializing Swarm, initializing mip-federation network, copying Comp
 sleep 1
 
 # Init_swarm
-ansible_playbook_init=${ansible_playbook}"../Init-Swarm.yaml -K -vvv"
+ansible_playbook_init=${ansible_playbook}"../Init-Swarm.yaml -K -vvvv"
 ${ansible_playbook_init}
 
 ansible_playbook_code=$?
@@ -36,8 +36,10 @@ while IFS= read -r line; do
             if [[ "$line" = *"["* ]]; then
                 break
             fi
-            ansible_playbook_join+=${worker} "-K -vvv"
+            ansible_playbook_join+=${worker}"  -K  -vvvv"
             flag=0
+	    echo  "${ansible_playbook_join}"
+	    sleep 120
             ${ansible_playbook_join}
 
             ansible_playbook_code=$?
@@ -64,7 +66,7 @@ make sure you include them when initializing the exareme swarm target machines' 
             break
         elif [[ "${answer}" == "n" ]]; then
             echo "Exiting...(Leaving Swarm for Master node).."
-            ansible_playbook_leave=${ansible_playbook}"../Leave-Master.yaml -K -vvv "
+            ansible_playbook_leave=${ansible_playbook}"../Leave-Master.yaml -K -vvvv "
             ${ansible_playbook_leave}
 
             ansible_playbook_code=$?
@@ -100,7 +102,7 @@ do
         echo -e "\nExareme services and Portainer service are now running"
         break
     elif [[ "${answer}" == "n" ]]; then
-        ansible_playbook_start=${ansible_playbook}"../Start-Exareme.yaml --skip-tags portainer -K -vvv"
+        ansible_playbook_start=${ansible_playbook}"../Start-Exareme.yaml --skip-tags portainer -K -vvvv"
         ${ansible_playbook_start}
 
         ansible_playbook_code=$?
