@@ -1,0 +1,6 @@
+jwtSecret='1234567890'
+jwtIssuer='mip.humanbrainproject.eu'
+galaxyURL=http://155.105.223.24:8090/'
+galaxyApiKey='615f29203fa28bb9c10abc26413a6d1e'
+galaxyReverseProxyUsername=admin
+galaxyReverseProxyPassword=Mip-2019
