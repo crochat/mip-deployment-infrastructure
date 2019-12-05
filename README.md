@@ -50,6 +50,7 @@ All of the software stack is based on docker so you need to install it in the ma
 Each software stack has more specific requirments
 
 To install EXAREME locally see the [Local exareme Deployment Guide](https://github.com/HBPMedical/mip-deployment-infrastructure/tree/release/Local-Deployment)
+To install Front End and APIs Pack require "Prepare your environment"
 ## Install Front End and APIs Pack
 
 ### Prepare your environment
