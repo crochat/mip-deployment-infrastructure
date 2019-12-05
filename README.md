@@ -53,12 +53,10 @@ Each software stack has more specific requirments
 To install EXAREME locally see the [Local exareme Deployment Guide](https://github.com/HBPMedical/mip-deployment-infrastructure/tree/release/Local-Deployment)
 ## Install Front End and APIs Pack
 
-### Pepare your environment
-In order to deploy the Frontend component and API you need to modify the docker-compose.yaml file with your Analytics Pack you need:
-
-EXAREME_URL (EXAREME_IP:EXAREME_PORT from step 1 e.g. http://155.105.200.235:9090 )
-
-Go to the docker-compose.yml file and modify these env variables with the values that you have from the previous steps. You can also modify the images of the portal-backend and the portal-frontend depending on what you want to deploy.
+### Prepare your environment
+In order to deploy the Frontend component and API you need to modify the docker-compose.yaml file and set the Variable EXAREME_URL with the server IP addresse:
+EXAREME_URL (EXAREME_IP:EXAREME_PORT from step 1 e.g. http://{your-server-ip-address}:9090 ) keeping the default port 9090
+if you secure your application access with OpenID you need to set
 
 ### Deploy
 Run the ./run.sh command to install the rest of the components.
