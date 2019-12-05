@@ -23,10 +23,10 @@ The installation process of the MIP Version 5.0 in a demonstration setting is di
 This guide will assist you in deploying all the packs and explain what dependencies each one has with the rest. This guide does not include detailed installation steps for each service but will prompt you to the appropriate guide.
 
 ## Prerequisites
-
-The server must be set up according to the MIP Technical Requirements and must be in a clean state.  In case you already have a previous version of the MIP installed and before proceeding with the MIP version 5.0 installation you will need to uninstall the previous version totally. 
-Please proceed manually to clean up the server by removing components like: MESOS, Marathon, Zookeeper.
-You can using the script cleanup.sh to remove the previous installation.
+- The server must be set up according to the MIP Technical Requirements and must be in a clean state.  In case you already have a previous version of the MIP installed and before proceeding with the MIP version 5.0 installation you will need to uninstall the previous version totally. 
+- Please proceed manually to clean up the server by removing components like: MESOS, Marathon, Zookeeper.
+**You can using the script cleanup.sh to remove the previous installation**.
+- You need to create FQDN for you MIP application in order to to that you need to generate TLS certificat and setting your Domaine name application.
 ### If you want to secure your MIP with OpenId
 Connect to HBP Collabotory to generate your credential OpenID security domain (https://services.humanbrainproject.eu/oidc/login)
 for configure the authentication in you MIP local Installation you have to modify the docker-compose file with your own CLIENT_ID and CLIENT_SECRET
@@ -54,15 +54,20 @@ To install EXAREME locally see the [Local exareme Deployment Guide](https://gith
 ## Install Front End and APIs Pack
 
 ### Prepare your environment
-In order to deploy the Frontend component and API you need to modify the docker-compose.yaml file and set the Variable EXAREME_URL with the server IP addresse:
-EXAREME_URL (EXAREME_IP:EXAREME_PORT from step 1 e.g. http://{your-server-ip-address}:9090 ) keeping the default port 9090
-if you secure your application access with OpenID you need to set
+In order to deploy the Frontend component and API you need to modify the docker-compose.yaml file and set the Variable **EXAREME_URL** with the server IP addresse:
+EXAREME_URL (EXAREME_IP:EXAREME_PORT from step 1 e.g. http://{your-server-ip-address}:9090 ) keeping the default port 9090.
+**If you secure your application access with OpenID** you need to set the variable below with you own **CLIENT_ID and CLIENT_SECRET**
+refer to **OpenID Connect Client.pdf file**.
+- AUTHENTICATION: 1
+- CLIENT_ID: ${your Clientid}
+- CLIENT_SECRET: ${your client_secret}
+- FRONTEND_LOGIN_URL: ${https://your domaine name MIP application/services/login/hbp}
+- FRONTEND_AFTER_LOGIN_URL: ${https://your domaine name MIP application}
+- FRONTEND_AFTER_LOGOUT_URL: ${https://your domaine name MIP application/services/login/hbp}
 
-### Deploy
+### Proced with frontend and API pack Installation
 Run the ./run.sh command to install the rest of the components.
-
-After the installation is done, MIP will be visible on localhost.
-
+After the installation is done, MIP will be visible on your local domaine.
 
 ## Verify the MIP 5.0 is working
 After the installation is done, the MIP Version 5.0 in a demonstration setting is now visible on localhost.  To verify all is working fine  Launch the MIP
