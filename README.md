@@ -65,7 +65,7 @@ refer to **OpenID Connect Client.pdf file**.
 - FRONTEND_AFTER_LOGIN_URL: ${https://your domaine name MIP application}
 - FRONTEND_AFTER_LOGOUT_URL: ${https://your domaine name MIP application/services/login/hbp}
 
-### Proced with frontend and API pack Installation
+### Proceed with frontend and API pack Installation
 Run the ./run.sh command to install the rest of the components.
 After the installation is done, MIP will be visible on your local domaine.
 
