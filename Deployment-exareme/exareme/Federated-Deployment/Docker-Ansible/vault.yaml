@@ -1,0 +1,5 @@
+remote_user: francois
+become_user: root
+become_pass: Aime-1979
+ansible_ssh_pass:  Aime-1979
+

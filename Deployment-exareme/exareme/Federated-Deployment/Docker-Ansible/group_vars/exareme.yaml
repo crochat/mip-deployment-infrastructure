@@ -1,0 +1,7 @@
+# Exareme Tag
+EXAREME_TAG: "v21.2.0"
+# Exareme Image
+EXAREME_IMAGE: "hbpmip/exareme"
+DOCKER_DATA_FOLDER: "/root/exareme/data/"
+LOCAL_DATA_FOLDER: "/data/exareme/data/"
+EXAREME_KEYSTORE: "exareme-keystore:8500"
