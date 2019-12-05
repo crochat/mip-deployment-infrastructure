@@ -39,7 +39,6 @@ while IFS= read -r line; do
             ansible_playbook_join+=${worker}"  -K  -vvvv"
             flag=0
 	    echo  "${ansible_playbook_join}"
-	    sleep 120
             ${ansible_playbook_join}
 
             ansible_playbook_code=$?
