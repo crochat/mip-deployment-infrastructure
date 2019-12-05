@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -x
 # Including functions only
 source ./vault.sh include-only
 source ./hosts.sh include-only
