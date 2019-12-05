@@ -37,8 +37,7 @@ There is the OpenId documentation on the GitHub repository which explain how to 
 ### Before you start (requirements)
 Ensure you have GIT installed on your server. If not proceed with GIT installation. When this is done:
  - clone this repository on your server so you can use it to install the MIP 5.0
- - Execute the script “after-git-clone.sh”
- - Each software stack has its own requirements but in order to deploy everything onto your servers you need at least 16 GB of ram.
+ - Execute the script **“after-git-clone.sh”**
  - Each software stack is based on docker and uses docker compose so you need to install **docker and docker compose** on your server:
  - Each software stack has it's own requirements but in order to deploy everything into one machine you need at **least 16 GB of ram.**
 
