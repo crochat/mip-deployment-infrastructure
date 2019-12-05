@@ -38,10 +38,9 @@ There is the OpenId documentation on the GitHub repository which explain how to 
 Ensure you have GIT installed on your server. If not proceed with GIT installation. When this is done:
  - clone this repository on your server so you can use it to install the MIP 5.0
  - Execute the script “after-git-clone.sh”
-Each software stack has its own requirements but in order to deploy everything onto your servers you need at least 16 GB of ram.
-Each software stack is based on docker and uses docker compose so you need to install docker and docker compose on your server:
-
-Each software stack has it's own requirements but in order to deploy everything into one machine you need at least 16 GB of ram.
+ - Each software stack has its own requirements but in order to deploy everything onto your servers you need at least 16 GB of ram.
+ - Each software stack is based on docker and uses docker compose so you need to install **docker and docker compose** on your server:
+ - Each software stack has it's own requirements but in order to deploy everything into one machine you need at **least 16 GB of ram.**
 
 All of the software stack is based on docker so you need to install it in the machines that you will use:
 
@@ -54,8 +53,8 @@ Each software stack has more specific requirments
 To install EXAREME locally see the [Local exareme Deployment Guide](https://github.com/HBPMedical/mip-deployment-infrastructure/tree/release/Local-Deployment)
 ## Install Front End and APIs Pack
 
-### Initialize the variables
-In order to deploy the Web Analytics Pack you need:
+### Pepare your environment
+In order to deploy the Frontend component and API you need to modify the docker-compose.yaml file with your Analytics Pack you need:
 
 EXAREME_URL (EXAREME_IP:EXAREME_PORT from step 1 e.g. http://155.105.200.235:9090 )
 
