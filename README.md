@@ -23,10 +23,10 @@ The installation process of the MIP Version 5.0 in a demonstration setting is di
 This guide will assist you in deploying all the packs and explain what dependencies each one has with the rest. This guide does not include detailed installation steps for each service but will prompt you to the appropriate guide.
 
 ## Prerequisites
-
-The server must be set up according to the MIP Technical Requirements and must be in a clean state.  In case you already have a previous version of the MIP installed and before proceeding with the MIP version 5.0 installation you will need to uninstall the previous version totally. 
-Please proceed manually to clean up the server by removing components like: MESOS, Marathon, Zookeeper.
-You can using the script cleanup.sh to remove the previous installation.
+- The server must be set up according to the MIP Technical Requirements and must be in a clean state.  In case you already have a previous version of the MIP installed and before proceeding with the MIP version 5.0 installation you will need to uninstall the previous version totally. 
+- Please proceed manually to clean up the server by removing components like: MESOS, Marathon, Zookeeper.
+**You can using the script cleanup.sh to remove the previous installation**.
+- You need to create FQDN for you MIP application in order to to that you need to generate TLS certificat and setting your Domaine name application.
 ### If you want to secure your MIP with OpenId
 Connect to HBP Collabotory to generate your credential OpenID security domain (https://services.humanbrainproject.eu/oidc/login)
 for configure the authentication in you MIP local Installation you have to modify the docker-compose file with your own CLIENT_ID and CLIENT_SECRET
@@ -37,8 +37,7 @@ There is the OpenId documentation on the GitHub repository which explain how to 
 ### Before you start (requirements)
 Ensure you have GIT installed on your server. If not proceed with GIT installation. When this is done:
  - clone this repository on your server so you can use it to install the MIP 5.0
- - Execute the script “after-git-clone.sh”
- - Each software stack has its own requirements but in order to deploy everything onto your servers you need at least 16 GB of ram.
+ - Execute the script **“after-git-clone.sh”**
  - Each software stack is based on docker and uses docker compose so you need to install **docker and docker compose** on your server:
  - Each software stack has it's own requirements but in order to deploy everything into one machine you need at **least 16 GB of ram.**
 
@@ -50,21 +49,25 @@ All of the software stack is based on docker so you need to install it in the ma
 ## Install EXAREME and backend components
 Each software stack has more specific requirments
 
-To install EXAREME locally see the [Local exareme Deployment Guide](https://github.com/HBPMedical/mip-deployment-infrastructure/tree/release/Local-Deployment)
+To install EXAREME locally see the [Local exareme Deployment Guide](https://github.com/HBPMedical/mip-deployment-infrastructure/tree/release/Local-Deployment).
+
 ## Install Front End and APIs Pack
 
-### Pepare your environment
-In order to deploy the Frontend component and API you need to modify the docker-compose.yaml file with your Analytics Pack you need:
+### Prepare your environment
+In order to deploy the Frontend component and API you need to modify the docker-compose.yaml file and set the Variable **EXAREME_URL** with the server IP addresse:
+EXAREME_URL (EXAREME_IP:EXAREME_PORT from step 1 e.g. http://{your-server-ip-address}:9090 ) keeping the default port 9090.
+**If you secure your application access with OpenID** you need to set the variable below with you own **CLIENT_ID and CLIENT_SECRET**
+refer to **OpenID Connect Client.pdf file**.
+- AUTHENTICATION: 1
+- CLIENT_ID: ${your Clientid}
+- CLIENT_SECRET: ${your client_secret}
+- FRONTEND_LOGIN_URL: ${https://your domaine name MIP application/services/login/hbp}
+- FRONTEND_AFTER_LOGIN_URL: ${https://your domaine name MIP application}
+- FRONTEND_AFTER_LOGOUT_URL: ${https://your domaine name MIP application/services/login/hbp}
 
-EXAREME_URL (EXAREME_IP:EXAREME_PORT from step 1 e.g. http://155.105.200.235:9090 )
-
-Go to the docker-compose.yml file and modify these env variables with the values that you have from the previous steps. You can also modify the images of the portal-backend and the portal-frontend depending on what you want to deploy.
-
-### Deploy
+### Proceed with frontend and API pack Installation
 Run the ./run.sh command to install the rest of the components.
-
-After the installation is done, MIP will be visible on localhost.
-
+After the installation is done, MIP will be visible on your local domaine.
 
 ## Verify the MIP 5.0 is working
 After the installation is done, the MIP Version 5.0 in a demonstration setting is now visible on localhost.  To verify all is working fine  Launch the MIP
