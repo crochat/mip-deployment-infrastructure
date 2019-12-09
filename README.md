@@ -38,7 +38,7 @@ In order to deploy Galaxy you need:
 1. `EXAREME_IP` (from step 1)
 2. `EXAREME_PORT` (default 9090)
 
-With that information you can follow the [Galaxy Installation Guide](https://github.com/madgik/galaxy/) to deploy Galaxy.
+With that information you can follow the [Galaxy Installation Guide](https://github.com/madgik/galaxy/) to deploy Galaxy or run the command below after replacing  *admin use,r admin password, and EXARAME_IP* with the user and password of your choice
 ```bash
 sudo docker run -d -e EXAREME_IP=${Ip-addr exareme master} -e EXAREME_PORT=9090 -p 8090:80 hbpmip/galaxy:v1.2.2 /bin/bash -c "htpasswd -bc /etc/apache2/htpasswd ${admin user} ${admin-passwor}d && ./createExaremeVariables.sh && /etc/init.d/apache2 restart && ./run.sh"
 
@@ -47,7 +47,7 @@ sudo docker run -d -e EXAREME_IP=${Ip-addr exareme master} -e EXAREME_PORT=9090 
 
 After installing Galaxy an API key should be created:
 
-- Enter Galaxy from the browser.
+- Enter Galaxy from the browser *http://${ip-address}:8090/nativeGalaxy* where ip-address is the server's ip address where galaxy is installed
 - Select the "User" Drop Down menu, on the navigation bar.
 - Select the "Preferences" option.
 - Select the "Manage API Key" option.
@@ -68,8 +68,13 @@ In order to deploy the Galaxy Middleware API you need:
 1. `GALAXY_URL` (from step 2)
 2. `GALAXY_API_KEY` (from step 2)
 3. `GALAXY_PASSWORD` (from step 2)
+4. `GALAXY SERVER IP ADRESS( from step 2)
 
-You can now follow this [Galaxy Middleware API Deployment Guide](https://github.com/madgik/Galaxy_Middleware_API/)
+You can now follow this [Galaxy Middleware API Deployment Guide](https://github.com/madgik/Galaxy_Middleware_API/) or using the command below after replace the follow arguments with your value
+```bash
+sudo docker run -d -e jwtSecret='1234567890' -e jwtIssuer='mip.humanbrainproject.eu' -e galaxyURL='http://${GALAXY SERVER IP ADRESS}:8090/' -e galaxyApiKey='${GALAXY_API_KEY}' -e galaxyReverseProxyUsername='admin' -e galaxyReverseProxyPassword='${GALAXY_PASSWORD}' -p 8091:8080 hbpmip/galaxy_middleware_api:v0.3.1
+
+```
 
 From this installation, remember the following details:
 
@@ -77,14 +82,12 @@ From this installation, remember the following details:
 1. `JWT_SECRET` (provided in the installation process)
 
 ### 4. Install Web-Analytics-Pack
-
-Clone this repository in your machine where it will be installed.
-
+**in order to simplify the installation GALAXY, GALAXY-API anf WEB-ANALYTIC are installed on the same machine**
 #### Initialize the variables
 
 In order to deploy the Web Analytics Pack you need:
 
-1. `EXAREME_URL` (`EXAREME_IP`:`EXAREME_PORT` from step 1 e.g. http://155.105.200.235:9090 )
+1. `EXAREME_URL` (`EXAREME_IP`:`EXAREME_PORT` from step 1 e.g. http://${exareme master server ip adress}:9090 )
 2. `GALAXY_CONTEXT` (reverse proxy endpoint, default to `nativeGalaxy`) (from step 2)
 3. `GALAXY_USERNAME` (`GALAXY_USERNAME`:`admin`) (from step 2)
 4. `GALAXY_PASSWORD` (`GALAXY_PASSWORD`:`password`) (from step 2)
