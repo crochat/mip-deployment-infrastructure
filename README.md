@@ -68,7 +68,7 @@ In order to deploy the Galaxy Middleware API you need:
 1. `GALAXY_URL` (from step 2)
 2. `GALAXY_API_KEY` (from step 2)
 3. `GALAXY_PASSWORD` (from step 2)
-4. `GALAXY SERVER IP ADRESS( from step 2)
+4. `GALAXY SERVER IP ADRESS`( from step 2)
 
 You can now follow this [Galaxy Middleware API Deployment Guide](https://github.com/madgik/Galaxy_Middleware_API/) or using the command below after replace the follow arguments with your value
 ```bash
