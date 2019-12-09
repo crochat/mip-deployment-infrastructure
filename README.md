@@ -26,13 +26,10 @@ Each software stack has more specific requirments
 
 ### 1. Install Exareme
 
-You can install exareme locally by following this guide:
-[Local Deployment Guide](https://github.com/madgik/exareme/tree/master/Local-Deployment)
-
-Or you can install federated exareme by following this guide:
+Install federated exareme by following this guide:
 [Federated Deployment Guide](https://github.com/madgik/exareme/tree/master/Federated-Deployment)
 
-In the next steps you will need to provide the IP of the master node of Exareme which will be refered as EXAREME_IP so keep that in mind.
+In the next steps you will need to provide the IP of the master node of Exareme which will be refered as EXAREME_IP in order to deploy *Web-analytic stack*  so keep that in mind.
 
 ### 2. Install Galaxy
 
@@ -41,7 +38,12 @@ In order to deploy Galaxy you need:
 1. `EXAREME_IP` (from step 1)
 2. `EXAREME_PORT` (default 9090)
 
-With that information you can follow the [Galaxy Installation Guide](https://github.com/madgik/galaxy/tree/master/Docker_Build_Scripts) to deploy Galaxy.
+With that information you can follow the [Galaxy Installation Guide](https://github.com/madgik/galaxy/) to deploy Galaxy.
+```bash
+sudo docker run -d -e EXAREME_IP=${Ip-addr exareme master} -e EXAREME_PORT=9090 -p 8090:80 hbpmip/galaxy:v1.2.2 /bin/bash -c "htpasswd -bc /etc/apache2/htpasswd ${admin user} ${admin-passwor}d && ./createExaremeVariables.sh && /etc/init.d/apache2 restart && ./run.sh"
+
+
+```
 
 After installing Galaxy an API key should be created:
 
