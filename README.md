@@ -97,7 +97,38 @@ Go to the `docker-compose.yml` file and modify these env variables with the valu
 
 #### Setup the pathologies
 
-Go to the `data` folder and there you will find a `pathologies.json` file.
+Go to the `data` folder and there you will find a `./data/pathologies.json` file. as exemple below
+``` json
+
+ },
+    "datasets": [
+      {
+        "code": "adni",
+        "label": "ADNI"
+      },
+      {
+        "code": "ppmi",
+        "label": "PPMI"
+      },
+      {
+        "code": "edsd",
+        "label": "EDSD"
+      },
+      {
+        "code": "clm",
+        "label": "CHUV CLM"
+      },
+
+      {
+        "code": "fbf",
+        "label": "BRESCIA HOSPITAL"
+      }
+
+    ]
+  },
+
+
+```
 
 This is used to inform the frontend what are the available datasets and CDEs. Modify this file accordingly before deploying.
 
