@@ -41,7 +41,7 @@ In order to deploy Galaxy you need:
 1. `EXAREME_IP` (from step 1)
 2. `EXAREME_PORT` (default 9090)
 
-With that information you can follow the [Galaxy Installation Guide](https://github.com/madgik/galaxy/tree/master/Docker_Build_Scripts) to deploy Galaxy.
+With that information you can follow the [Galaxy Installation Guide](https://github.com/madgik/galaxy/tree/master/) to deploy Galaxy.
 
 After installing Galaxy an API key should be created:
 
