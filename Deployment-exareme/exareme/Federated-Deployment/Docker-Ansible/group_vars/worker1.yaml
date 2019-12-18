@@ -1,0 +1,4 @@
+ansible_host: qa4
+ansible_hostname: lvn00254p
+hostname: lvn00254p
+

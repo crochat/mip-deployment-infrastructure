@@ -1,19 +1,12 @@
 #!/usr/bin/env bash
-
-init_ansible_playbook () {
-    ansible_playbook="ansible-playbook -i ../hosts.ini  --vault-password-file ../vault-password-file -e@../vault.yaml "
-
-    get_vault_authentication
-}
-
-
+set -x
 init_ansible_playbook
 
 echo -e "\nInitializing Swarm, initializing mip-federation network, copying Compose-Files folder to Manager of Swarm..."
 sleep 1
 
 # Init_swarm
-ansible_playbook_init=${ansible_playbook}"../Init-Swarm.yaml -K -vvvv"
+ansible_playbook_init=${ansible_playbook}" ../Init-Swarm.yaml"
 ${ansible_playbook_init}
 
 ansible_playbook_code=$?
@@ -28,7 +21,7 @@ echo -e "\nJoining worker nodes in Swarm..\n"
 while IFS= read -r line; do
     if [[ "$line" = *"[workers]"* ]]; then
         while IFS= read -r line; do
-            ansible_playbook_join=${ansible_playbook}"../Join-Workers.yaml -e my_host="
+            ansible_playbook_join=${ansible_playbook}" ../Join-Workers.yaml -e my_host="
             worker=$(echo "$line")
             if [[ -z "$line" ]]; then
                 continue        #If empty line continue..
@@ -36,9 +29,8 @@ while IFS= read -r line; do
             if [[ "$line" = *"["* ]]; then
                 break
             fi
-            ansible_playbook_join+=${worker}"  -K  -vvvv"
+            ansible_playbook_join+=${worker}
             flag=0
-	    echo  "${ansible_playbook_join}"
             ${ansible_playbook_join}
 
             ansible_playbook_code=$?
@@ -65,7 +57,7 @@ make sure you include them when initializing the exareme swarm target machines' 
             break
         elif [[ "${answer}" == "n" ]]; then
             echo "Exiting...(Leaving Swarm for Master node).."
-            ansible_playbook_leave=${ansible_playbook}"../Leave-Master.yaml -K -vvvv "
+            ansible_playbook_leave=${ansible_playbook}"../Leave-Master.yaml"
             ${ansible_playbook_leave}
 
             ansible_playbook_code=$?
@@ -88,7 +80,7 @@ read answer
 while true
 do
     if [[ "${answer}" == "y" ]]; then
-        ansible_playbook_start=${ansible_playbook}"../Start-Exareme.yaml -K -vvvv"
+        ansible_playbook_start=${ansible_playbook}" ../Start-Exareme.yaml"
         ${ansible_playbook_start}
 
         ansible_playbook_code=$?
@@ -101,7 +93,7 @@ do
         echo -e "\nExareme services and Portainer service are now running"
         break
     elif [[ "${answer}" == "n" ]]; then
-        ansible_playbook_start=${ansible_playbook}"../Start-Exareme.yaml --skip-tags portainer -K -vvvv"
+        ansible_playbook_start=${ansible_playbook}" ../Start-Exareme.yaml --skip-tags portainer"
         ${ansible_playbook_start}
 
         ansible_playbook_code=$?
