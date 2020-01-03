@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Including functions only
+set -x
 source ./updateFiles.sh include-only
 source ./stop.sh include-only
 
@@ -59,7 +60,8 @@ do
 		
 		# 2: (Re)Start all services.
 		elif [[ "${answer1}" == "2" ]]; then
-            echo -e "\nYou chose to (re)start all services..."
+		
+		echo -e "\nYou chose to (re)start all services..."
 
 			if [[ ! -s ../group_vars/exareme.yaml ]]; then
                 echo -e "\nFile for holding docker exareme image information does not exist. Please create it first (Option 6)."
