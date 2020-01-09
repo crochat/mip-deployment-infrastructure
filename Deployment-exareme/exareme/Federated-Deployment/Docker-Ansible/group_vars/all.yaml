@@ -11,10 +11,7 @@ PORTAINER_PORT: "9000"
 PORTAINER_IMAGE: "portainer/portainer"
 PORTAINER_VERSION: ":latest"
 PORTAINER_DATA: "{{hostvars['master']['home_path']}}portainer"
-remote_user: francois
-become_user: root
-become_pass: Aime-1979
-ansible_ssh_pass:  Aime-1979
+
 
 
 
