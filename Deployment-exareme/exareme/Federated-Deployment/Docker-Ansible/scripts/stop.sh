@@ -1,25 +1,25 @@
 #!/usr/bin/env bash
-
+set -x
 # Stop Exareme Services
 stopExaremeService () {
     if [[ ${1} == "1" ]]; then
         echo -e "\nStopping Exareme services..."
 
-        ansible_playbook_stop=${ansible_playbook}"../Stop-Services.yaml --skip-tags portainer -K -vvv"
+        ansible_playbook_stop=${ansible_playbook}"../Stop-Services.yaml --skip-tags portainer "
         ${ansible_playbook_stop}
         ansible_playbook_code=$?
 
     elif [[ ${1} == "2" ]]; then
         echo -e "\nStopping Portainer services..."
 
-        ansible_playbook_stop=${ansible_playbook}"../Stop-Services.yaml --skip-tags exareme  -K -vvv"
+        ansible_playbook_stop=${ansible_playbook}"../Stop-Services.yaml --skip-tags exareme "
         ${ansible_playbook_stop}
         ansible_playbook_code=$?
 
     elif [[ ${1} == "3" ]]; then
         echo -e "\nStopping all services..."
 
-        ansible_playbook_stop=${ansible_playbook}"../Stop-Services.yaml -K -vvv"
+        ansible_playbook_stop=${ansible_playbook}"../Stop-Services.yaml "
         ${ansible_playbook_stop}
         ansible_playbook_code=$?
 
