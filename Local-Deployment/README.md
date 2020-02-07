@@ -72,7 +72,7 @@ The file should contain the following lines, modify them depending on the versio
 
 ```
 EXAREME_IMAGE: "hbpmip/exareme"
-EXAREME_TAG: "v21.2.0"
+EXAREME_TAG: "v21.3.0"
 ```
 
 ## [Optional] Data path location
