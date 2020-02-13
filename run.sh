@@ -34,9 +34,9 @@ do
   fi
 done
 
-if pgrep -lf sshuttle > /dev/null ; then
-  echo "sshuttle detected. Please close this program as it messes with networking and prevents Docker links to work"
-  exit 1
+if pgrep -x sshuttle > /dev/null ; then
+  echo "sshuttle detected. Please note that without any special configuration, it redirects ALL the network traffic from your machine (including Docker containers) through the SSH link!"
+  echo "Make sure, or to stop it, or to parameter it to exclude all your required networks, or to let a tool like sshuttleplus do it for you!"
 fi
 
 if [[ $NO_SUDO || -n "$CIRCLECI" ]]; then
